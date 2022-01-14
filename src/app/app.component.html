@@ -1,0 +1,128 @@
+<header class="bg-dark py-3 row-" style="margin-right: -17.9%">
+  <div class="container bi-text-left" style="margin-left: 235px">
+    <a href="#" class="ms-auto link-light" ><span><span>Créer un compte</span></span></a>
+  </div>
+</header>
+
+  <div class=" container-fluid " style="height: 100%" id="sidebar">
+    <div class="row" style="height: 100%" >
+      <aside class=" p-3 text-white bg-dark" style="width: 263px;height: 100%">
+          <span class="fs-4">Gestion des stagiaires</span>
+        <hr>
+        <span class="text-danger" *ngIf="!change()">
+            Non Connecté
+        </span>
+        <span class="text-success" *ngIf="change()">
+            Connecté
+        </span>
+        <hr>
+        <nav class="navbar navbar-expand">
+          <div class="navbar-collapse">
+            <ul class="flex-column navbar-nav w-100  nav-pills">
+              <li class="nav-item">
+                <a routerLinkActive="active link" routerLink="/home" class="nav-link text-white" >
+                  <i class="bi-house btn-space"></i>
+                  Home
+                </a>
+              </li>
+              <li>
+                <a routerLinkActive="active link" routerLink="/dashboard" class="nav-link text-white">
+                  <i class="bi bi-speedometer2 btn-space"></i>
+                  Dashboard
+                </a>
+              </li>
+              <li>
+                <a  routerLink="/Orders" class="nav-link text-white">
+                  <i class="bi bi-table btn-space"></i>
+                  Orders
+                </a>
+              </li>
+              <li>
+                <a  routerLink="/Customers" class="nav-link text-white" >
+                  <i class="bi bi-person-circle btn-space"></i>
+                  Customers
+                </a>
+              </li>
+              <li class="l2">
+                <a routerLinkActive="active link" routerLink="/login" class="nav-link text-white" *ngIf="!change()" >
+                  <i class="bi bi-power btn-space"></i>
+                  Connexion
+                </a>
+                <!--<a routerLink="/login" class="nav-link text-white" *ngIf="change()">
+                  <i class="bi bi-power btn-space"></i>
+                  Déconnexion
+                </a>-->
+                <button class="btn btn-danger" *ngIf="change()" (click)="changeLink()"><i class="bi bi-power btn-space"></i>Déconnexion</button>
+              </li>
+            </ul>
+          </div>
+        </nav>
+        <hr class="l1">
+        <div class="dropdown">
+          <strong>Copyright © 2022 Rodrigue.</strong>
+        </div>
+      </aside>
+      <!--class="col-md-10" style="margin-left: 20%; margin-top: -35%"-->
+      <main>
+        <router-outlet></router-outlet>
+      </main>
+    </div>
+  </div>
+<!--
+
+<aside class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;height: 625px">
+    <a routerLink="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none">
+
+      <span class="fs-4">Gestion des stagiaires</span>
+    </a>
+    <hr>
+    <span>
+      {{statut}}
+    </span>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <a routerLink="#" class="nav-link active" aria-current="page">
+          <i class="bi-house btn-space"></i>
+          Home
+        </a>
+      </li>
+      <li>
+        <a routerLink="#" class="nav-link text-white">
+          <i class="bi bi-speedometer2 btn-space"></i>
+          Dashboard
+        </a>
+      </li>
+      <li>
+        <a routerLink="#" class="nav-link text-white">
+          <i class="bi bi-table btn-space"></i>
+          Orders
+        </a>
+      </li>
+      <li>
+        <a routerLink="#" class="nav-link text-white" >
+          <i class="bi bi-person-circle btn-space"></i>
+          Customers
+        </a>
+      </li>
+      <li>
+        <a routerLink="#" class="nav-link text-white" *ngIf="!authStatut">
+          <i class="bi bi-power btn-space"></i>
+          Connexion
+        </a>
+        <a routerLink="#" class="nav-link text-white" *ngIf="authStatut">
+          <i class="bi bi-power btn-space"></i>
+          Déconnexion
+        </a>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+        <strong>Copyright © 2022 Rodrigue.</strong>
+    </div>
+
+</aside>
+<main class="col">
+  <app-login></app-login>
+</main>
+-->

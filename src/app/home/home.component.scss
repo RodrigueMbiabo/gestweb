@@ -1,0 +1,21 @@
+#sidebar {
+  width: 210px;
+  height: 100%;
+  position: fixed;
+  background: #2f323a;
+}
+
+.mt {
+  margin-top: 25px;
+}
+.fa {
+  display: inline-block;
+  font: normal normal normal 14px/1 FontAwesome;
+  font-size: inherit;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+ul.sidebar-menu li.sub-menu {
+  line-height: 15px;
+}

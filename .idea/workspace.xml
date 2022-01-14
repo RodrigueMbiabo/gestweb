@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="62380b4f-18cc-4f85-8c9d-eeca6bf05413" name="Default Changelist" comment="" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="23CXTLFNW6AOkkihx4DDUMvPLOB" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="C:/xampp/htdocs/traineemanagement" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="ts.external.directory.path" value="C:\Users\RODRIGO BALMACEDAS\IdeaProjects\gestionstagiaire-web\node_modules\typescript\lib" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="npm.Angular CLI Server">
+    <configuration name="Angular Application" type="JavascriptDebugType" uri="http://localhost:4200">
+      <method v="2" />
+    </configuration>
+    <configuration name="Angular CLI Server" type="js.build_tools.npm">
+      <package-json value="$PROJECT_DIR$/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="start" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="62380b4f-18cc-4f85-8c9d-eeca6bf05413" name="Default Changelist" comment="" />
+      <created>1641239049048</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1641239049048</updated>
+      <workItem from="1641239052094" duration="8815000" />
+      <workItem from="1641291444760" duration="20487000" />
+      <workItem from="1641370326113" duration="10754000" />
+      <workItem from="1641388053128" duration="12173000" />
+      <workItem from="1641435736082" duration="24015000" />
+      <workItem from="1641503525731" duration="6113000" />
+      <workItem from="1641511614754" duration="7117000" />
+      <workItem from="1641550590687" duration="19315000" />
+      <workItem from="1641661448462" duration="6975000" />
+      <workItem from="1641712200932" duration="1074000" />
+      <workItem from="1641719885592" duration="7023000" />
+      <workItem from="1641803745372" duration="594000" />
+      <workItem from="1641809640027" duration="13819000" />
+      <workItem from="1641845666054" duration="1315000" />
+      <workItem from="1641892945921" duration="1144000" />
+      <workItem from="1641894368265" duration="26517000" />
+      <workItem from="1641945991470" duration="5816000" />
+      <workItem from="1641976991996" duration="24562000" />
+      <workItem from="1642150269504" duration="5182000" />
+      <workItem from="1642159878911" duration="1112000" />
+      <workItem from="1642161012623" duration="1336000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>
