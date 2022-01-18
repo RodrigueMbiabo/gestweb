@@ -1,0 +1,137 @@
+
+<!--Ajouter un utilisateur-->
+
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%" *ngIf="getMode()==2">
+  <div class="dropdown-menu-dark">
+    <form class="px-4 py-3 was-validated">
+      <fieldset>
+        <legend>Nouveau utilisateur</legend>
+        <div class="mb-3">
+          <label for="nom" class="form-label">Nom<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nom" name="nom" placeholder="MBIAHA" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="prenom" class="form-label">Prenom</label>
+          <input type="text" class="form-control" id="prenom" name="prenom" placeholder="RODRIGUE" ngModel >
+        </div>
+        <div class="mb-3">
+          <label for="matricule" class="form-label">Matricule<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="matricule" name="matricule" placeholder="17S66807" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" name="matricule" placeholder="balamcedas@gmail.com" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="username" class="form-label">Username<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="username" name="username" placeholder="Rod20" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Departement<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example">
+            <option value="1">Developpement</option>
+            <option value="2">Reseaux</option>
+            <option value="3">Maintenance</option>
+            <option value="4">Infographie</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label class="form-label">Profil<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example">
+            <option value="1">Developpeur</option>
+            <option value="2">Maintenancier</option>
+            <option value="3">Administrateur Reseaux</option>
+            <option value="4">Infographe</option>
+          </select>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Role<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example">
+            <option value="1">ROLE_ADMIN</option>
+            <option value="2">ROLE_ENCADREUR</option>
+            <option value="3">ROLE_STAGIAIRE</option>
+            <option value="4">ROLE_SECRETAIRE</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" ><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Ajouter</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<!--Consulter les utilisateur-->
+
+<div class="table-responsive" *ngIf="getMode()==1">
+  <table class="table">
+    <thead class="table-light">
+    <tr align="center">
+      <th>Liste des utilisateurs</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center">
+      <td><button class="btn btn-primary" (click)="onGetUser()">Utilisateurs</button></td>
+    </tr>
+    <tr align="center">
+      <td>
+        <form (ngSubmit)="onCherhcer(f)" #f="ngForm">
+          <div >
+            <label style="margin: 5px">keyword</label>
+            <input type="text" name="keyword" ngModel>
+            <button type="submit" class="btn btn-primary" style="margin: 5px">Chercher</button>
+          </div>
+        </form>
+      </td>
+    </tr>
+    </tbody>
+    <table *ngIf="users" class="table table-dark table-hover align-middle">
+      <thead>
+      <tr align="center" >
+        <th> NOM </th>
+        <th> PRENOM </th>
+        <th> MATRICULE </th>
+        <th> EMAIL </th>
+        <th> Departement </th>
+        <th> Role </th>
+        <th> Profil </th>
+        <th> Nom d'utilisateur </th>
+        <th> Action </th>
+        <!--<th> ID </th> <th> NOM </th>  <th> Description </th>-->
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let u of users ">
+        <td>{{u.nom}}</td>
+        <td>{{u.prenom}}</td>
+        <td>{{u.matricule}}</td>
+        <td>{{u.email}}</td>
+        <td>{{u.dpt.nomDpt}}</td>
+        <td>{{u.role.nomRole}}</td>
+        <td>{{u.profil.nomProfil}}</td>
+        <td>{{u.userlog}}</td>
+        <td><button class="btn btn-primary btn-sm space">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDelete(u)">Supprimer</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </table>
+  <!--<ul *ngIf="pages" class="nav nav-pills " style="margin: 10px">
+    <li [ngClass]="i==currentPage?'active-link':''" *ngFor="let p of pages; let i = index" style="margin: 10px">
+        <a (click)="onPageUser(i)">{{i}}</a>
+    </li>
+  </ul>-->
+  <nav *ngIf="pages" aria-label="...">
+    <ul class="pagination justify-content-center">
+      <li class="clickable" *ngFor="let p of pages; let i = index" [ngClass]="i==currentPage?'page-item active':''" >
+        <a class="page-link" (click)="onPageUser(i)">{{i}}</a>
+      </li>
+
+    </ul>
+  </nav>
+</div>
+
+

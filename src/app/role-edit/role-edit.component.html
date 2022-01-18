@@ -1,0 +1,23 @@
+<!--Editer un role-->
+
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%; margin-top: 13%" *ngIf="currentRole">
+  <div class="dropdown-menu-dark">
+    <form class="px-4 py-3 was-validated"  #f="ngForm" (ngSubmit)="onUpdate(f.value)">
+      <fieldset>
+        <legend>Mise à jour du Role</legend>
+        <div class="mb-3">
+          <label for="nomRole" class="form-label">Nom<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nomRole" name="nomRole" placeholder="ROLE_USER" ngModel required [(ngModel)]="currentRole.nomRoleDTO">
+        </div>
+        <div class="mb-3">
+          <label for="descripRole" class="form-label">Description<span class="text-danger">*</span></label>
+          <!--<input type="text" class="form-control" id="descripRole" name="descripRole" ngModel required>-->
+          <textarea class="form-control" id="descripRole" rows="3" name="descripRole" ngModel required [(ngModel)]="currentRole.descripRoleDTO"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Update</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+

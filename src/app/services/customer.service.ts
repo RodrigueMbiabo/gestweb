@@ -3,6 +3,7 @@ import {Injectable} from "@angular/core";
 
 @Injectable()
 export class CustomerService {
+  public mode !: number;
   public host: string = "http://localhost:8080";
   constructor(private httpClient: HttpClient){}
 

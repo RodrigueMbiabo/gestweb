@@ -1,0 +1,57 @@
+<!--Ajouter un role-->
+
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%; margin-top: 13%" *ngIf="roleMode() == 2">
+  <div class="dropdown-menu-dark">
+    <form class="px-4 py-3 was-validated" (ngSubmit)="onSaveRole(f.value)" #f = "ngForm">
+      <fieldset>
+        <legend>Nouveau role</legend>
+        <div class="mb-3">
+          <label for="nomRole" class="form-label">Nom<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nomRole" name="nomRole" placeholder="ROLE_USER" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="descripRole" class="form-label">Description<span class="text-danger">*</span></label>
+          <!--<input type="text" class="form-control" id="descripRole" name="descripRole" ngModel required>-->
+          <textarea class="form-control" id="descripRole" rows="3" name="descripRole" ngModel required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Ajouter</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+
+<!--Consulter les roles-->
+
+<div class="table-responsive" *ngIf="roleMode() == 1">
+  <table class="table">
+    <thead class="table-light">
+    <tr align="center">
+      <th>Liste des Roles</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center">
+      <td><button class="btn btn-primary" (click)="onGetRoles()">Roles</button></td>
+    </tr>
+    </tbody>
+    <table *ngIf="roles" class="table table-dark table-hover align-middle">
+      <thead>
+      <tr align="center" >
+        <th> NOM </th>
+        <th> Description</th>
+        <th> Action </th>
+        <!--<th> ID </th> <th> NOM </th>  <th> Description </th>-->
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let r of roles._embedded.roles ">
+        <td>{{r.nomRole}}</td>
+        <td>{{r.descripRole}}</td>
+        <td><button class="btn btn-primary btn-sm space" (click)="onEditRole(r)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteRole(r)">Supprimer</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </table>
+</div>
+

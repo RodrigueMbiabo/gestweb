@@ -14,11 +14,22 @@ import {AuthGuard} from "./services/auth-guard.service";
 import { HomeComponent } from './home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import {CustomerService} from "./services/customer.service";
+import { NewUserComponent } from './new-user/new-user.component';
+import { RoleComponent } from './role/role.component';
+import {RessourceService} from "./services/ressource.service";
+import { RoleEditComponent } from './role-edit/role-edit.component';
+import { ProfilComponent } from './profil/profil.component';
+import { ProfilEditComponent } from './profil-edit/profil-edit.component';
+import { DepartementComponent } from './departement/departement.component';
+import { DepartementEditComponent } from './departement-edit/departement-edit.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', canActivate:[AuthGuard], component: HomeComponent},
   {path: 'dashboard', canActivate:[AuthGuard],component: DashboardComponent},
+  {path: 'user', component: NewUserComponent},
+  {path: 'role', component: RoleComponent},
+  {path: 'role-edit/:id', component: RoleEditComponent},
   {path:'', component: LoginComponent},
   {path:'not-found', component:FourOhFourComponent},
   {path:'**', redirectTo:('/not-found')}
@@ -31,7 +42,14 @@ const appRoutes: Routes = [
     LoginComponent,
     DashboardComponent,
     FourOhFourComponent,
-    HomeComponent
+    HomeComponent,
+    NewUserComponent,
+    RoleComponent,
+    RoleEditComponent,
+    ProfilComponent,
+    ProfilEditComponent,
+    DepartementComponent,
+    DepartementEditComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +62,9 @@ const appRoutes: Routes = [
   providers: [LoginService,
     AuthService,
     AuthGuard,
-    CustomerService
+    CustomerService,
+    RessourceService
   ],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

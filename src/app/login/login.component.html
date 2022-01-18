@@ -1,29 +1,37 @@
-<div class="col-md-7" style="margin-left: 40%; margin-top: -40%">
-  <div class="col-sm-8 col-sm-offset-2">
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%; margin-top: 5%">
     <div class="dropdown-menu-dark">
-      <form class="px-4 py-3" (ngSubmit)="onSubmit(f)" #f="ngForm">
-        <div class="mb-3">
-          <label for="nom" class="form-label">Username</label>
-          <input type="text" class="form-control" id="nom" name="nom" placeholder="Rod20" ngModel required>
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
-        </div>
-        <div class="mb-3">
-          <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="dropdownCheck">
-            <label class="form-check-label" for="dropdownCheck">
-              Remember me
-            </label>
+      <form class="px-4 py-3 was-validated" (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <fieldset>
+            <legend>Formulaire de connexion</legend>
+          <div class="mb-3">
+            <label for="nom" class="form-label">Username</label>
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="Rod20" ngModel required>
+            <div class="invalid-feedback">
+              Please enter your username.
+            </div>
           </div>
-        </div>
-        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Connecter</button>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
+            <div class="invalid-feedback">
+              Please enter your password.
+            </div>
+          </div>
+          <div class="mb-3">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="dropdownCheck">
+              <label class="form-check-label" for="dropdownCheck">
+                Remember me
+              </label>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Connecter</button>
+        </fieldset>
       </form>
       <div class="dropdown-divider"></div>
       <a class="dropdown-item" href="#">Nouveau par ici? Creer Compte</a>
       <a class="dropdown-item" href="#">Mot de passe oublié?</a>
     </div>
   </div>
-</div>
+
 
