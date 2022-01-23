@@ -3,7 +3,7 @@
 
 <div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%" *ngIf="getMode()==2">
   <div class="dropdown-menu-dark">
-    <form class="px-4 py-3 was-validated">
+    <form class="px-4 py-3 was-validated" (ngSubmit)="onSaveUser(f.value)" #f="ngForm">
       <fieldset>
         <legend>Nouveau utilisateur</legend>
         <div class="mb-3">
@@ -20,44 +20,48 @@
         </div>
         <div class="mb-3">
           <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
-          <input type="email" class="form-control" id="email" name="matricule" placeholder="balamcedas@gmail.com" ngModel required>
+          <input type="email" class="form-control" id="email" name="email" placeholder="balamcedas@gmail.com" ngModel required>
         </div>
         <div class="mb-3">
-          <label for="username" class="form-label">Username<span class="text-danger">*</span></label>
-          <input type="text" class="form-control" id="username" name="username" placeholder="Rod20" ngModel required>
+          <label for="userlog" class="form-label">Username<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="userlog" name="userlog" placeholder="rod20" ngModel required>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
           <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
         </div>
         <div class="mb-3">
-          <label  class="form-label">Departement<span class="text-danger">*</span></label>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1">Developpement</option>
+          <label  class="form-label">Departement<span class="text-danger" >*</span></label>
+          <select class="form-select" aria-label="Default select example" name="dpt" ngModel required>
+            <option *ngFor="let d of departements" [value]="d.idDptDTO">{{d.nomDptDTO}}</option>
+            <!--<option value="1">Developpement</option>
             <option value="2">Reseaux</option>
             <option value="3">Maintenance</option>
-            <option value="4">Infographie</option>
+            <option value="4">Infographie</option>-->
           </select>
+          <!--<label  class="form-label" (click)="onGetDepartements()">Departement<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example"  *ngFor="let d of departements._embedded.departements;let i = index">
+            <option [value]="i">{{d.nomDpt}}</option>-->
         </div>
         <div class="mb-3">
-          <label class="form-label">Profil<span class="text-danger">*</span></label>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1">Developpeur</option>
-            <option value="2">Maintenancier</option>
+          <label class="form-label" >Profil<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example" name="profil" ngModel required>
+            <option *ngFor="let p of profils" [value]="p.idProfilDTO">{{p.nomProfilDTO}}</option>
+            <!--<option value="2">Maintenancier</option>
             <option value="3">Administrateur Reseaux</option>
-            <option value="4">Infographe</option>
+            <option value="4">Infographe</option>-->
           </select>
         </div>
         <div class="mb-3">
-          <label  class="form-label">Role<span class="text-danger">*</span></label>
-          <select class="form-select" aria-label="Default select example">
-            <option value="1">ROLE_ADMIN</option>
-            <option value="2">ROLE_ENCADREUR</option>
+          <label  class="form-label over2">Role<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example" name="role" ngModel required>
+            <option *ngFor="let r of roles" [value]="r.idRoleDTO">{{r.nomRoleDTO}}</option>
+            <!--<option value="2">ROLE_ENCADREUR</option>
             <option value="3">ROLE_STAGIAIRE</option>
-            <option value="4">ROLE_SECRETAIRE</option>
+            <option value="4">ROLE_SECRETAIRE</option>-->
           </select>
         </div>
-        <button type="submit" class="btn btn-primary btn-space" ><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Ajouter</button>
+        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Ajouter</button>
       </fieldset>
     </form>
   </div>
@@ -114,7 +118,7 @@
         <td>{{u.role.nomRole}}</td>
         <td>{{u.profil.nomProfil}}</td>
         <td>{{u.userlog}}</td>
-        <td><button class="btn btn-primary btn-sm space">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDelete(u)">Supprimer</button></td>
+        <td><button class="btn btn-primary btn-sm space" (click)="onUpdateUser(u)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDelete(u)">Supprimer</button></td>
       </tr>
       </tbody>
     </table>

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {CustomerService} from "../services/customer.service";
+import {RessourceService} from "../services/ressource.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-new-user',
@@ -8,7 +10,13 @@ import {CustomerService} from "../services/customer.service";
 })
 export class NewUserComponent implements OnInit {
 
-  constructor( private customerService: CustomerService) {}
+  constructor(
+    private customerService: CustomerService,
+    private departementService: RessourceService,
+    private roleService: RessourceService,
+    private profilService: RessourceService,
+    private router: Router
+    ) {}
 
   public currentKeyword : string = "";
   public users: any = undefined;
@@ -18,11 +26,13 @@ export class NewUserComponent implements OnInit {
   public currentPage: number=0;
   public totalPages : number = 0;
   public pages !: Array<number>;
+  public departements: any;
+  public profils : any;
+  public roles !: any;
   //public mode !: number;
   /*public roles: any = undefined;*/
 
-  ngOnInit(): void {
-  }
+
 
 
   onGetUser() {
@@ -112,4 +122,88 @@ export class NewUserComponent implements OnInit {
     return this.customerService.mode;
   }
 
+  onGetDepartements() {
+    this.departementService.getRessources(this.departementService.host+"/Departements")
+      .subscribe(
+        data =>{
+          //console.log(data);
+          this.departements = data;
+          //console.log(this.roles)
+        },
+        error => {
+          console.log(error)
+        }
+      );
+
+
+  }
+  onGetRoles(){
+
+    this.roleService.getRessources(this.roleService.host+"/Roles")
+      .subscribe(
+        data =>{
+          this.roles = data;
+          //console.log(this.roles)
+        },
+        error => {
+          console.log(error)
+        }
+      );
+  }
+
+  onGetProfils() {
+
+    this.profilService.getRessources(this.profilService.host+"/Profils")
+      .subscribe(
+        res =>{
+          this.profils = res;
+          //console.log("les profils: "+this.profils)
+        }, error => {
+          console.log(error);
+        }
+      )
+  }
+
+  ngOnInit(): void {
+    this.onGetDepartements();
+    this.onGetProfils();
+    this.onGetRoles();
+  }
+
+  onSaveUser(value: any) {
+    const utilisateur = {
+      nom: value.nom,
+      prenom: value.prenom,
+      matricule: value.matricule,
+      email: value.email,
+      password: value.password,
+      dpt: {
+        idDpt: value.dpt
+      },
+      role: {
+        idRole: value.role
+      },
+      profil: {
+        idProfil: value.profil
+      },
+      userlog: value.userlog
+    };
+    //console.log("Valeur du dp "+value.dpt);
+    this.customerService.signInUser(this.customerService.host+"/user",utilisateur)
+      .subscribe(
+        data =>{
+          this.customerService.mode = 1;
+          this.router.navigateByUrl("/user")
+        }, error => {
+          console.log(error);
+        }
+      )
+
+  }
+
+  onUpdateUser(u:any) {
+    this.customerService.mode = 10;
+    let url =  this.customerService.host+"/user/"+u.idUser;
+    this.router.navigateByUrl("/user-edit/"+btoa(url));
+  }
 }

@@ -1,0 +1,69 @@
+
+<!--Editer un utilisateur-->
+
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%" *ngIf="currentUser">
+  <div class="dropdown-menu-dark">
+    <form class="px-4 py-3 was-validated" (ngSubmit)="onUpdateUser(f.value)" #f="ngForm">
+      <fieldset>
+        <legend>Nouveau utilisateur</legend>
+        <div class="mb-3">
+          <label for="nom" class="form-label">Nom<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nom" name="nom" placeholder="MBIAHA" ngModel required [(ngModel)]="currentUser.nomDTO">
+        </div>
+        <div class="mb-3">
+          <label for="prenom" class="form-label">Prenom</label>
+          <input type="text" class="form-control" id="prenom" name="prenom" placeholder="RODRIGUE" ngModel [(ngModel)]="currentUser.prenomDTO">
+        </div>
+        <div class="mb-3">
+          <label for="matricule" class="form-label">Matricule<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="matricule" name="matricule" placeholder="17S66807" ngModel required [(ngModel)]="currentUser.matriculeDTO">
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">Email<span class="text-danger">*</span></label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="balamcedas@gmail.com" ngModel required [(ngModel)]="currentUser.emailDTO">
+        </div>
+        <div class="mb-3">
+          <label for="userlog" class="form-label">Username<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="userlog" name="userlog" placeholder="rod20" ngModel required [(ngModel)]="currentUser.userlogDTO">
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Password<span class="text-danger">*</span></label>
+          <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label">Departement<span class="text-danger" >*</span></label>
+          <select class="form-select" aria-label="Default select example" name="dpt" ngModel required>
+            <option *ngFor="let d of departements" [value]="d.idDptDTO">{{d.nomDptDTO}}</option>
+            <!--<option value="1">Developpement</option>
+            <option value="2">Reseaux</option>
+            <option value="3">Maintenance</option>
+            <option value="4">Infographie</option>-->
+          </select>
+          <!--<label  class="form-label" (click)="onGetDepartements()">Departement<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example"  *ngFor="let d of departements._embedded.departements;let i = index">
+            <option [value]="i">{{d.nomDpt}}</option>-->
+        </div>
+        <div class="mb-3">
+          <label class="form-label" >Profil<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example" name="profil" ngModel required>
+            <option *ngFor="let p of profils" [value]="p.idProfilDTO">{{p.nomProfilDTO}}</option>
+            <!--<option value="2">Maintenancier</option>
+            <option value="3">Administrateur Reseaux</option>
+            <option value="4">Infographe</option>-->
+          </select>
+        </div>
+        <div class="mb-3">
+          <label  class="form-label over2">Role<span class="text-danger">*</span></label>
+          <select class="form-select" aria-label="Default select example" name="role" ngModel required>
+            <option *ngFor="let r of roles" [value]="r.idRoleDTO">{{r.nomRoleDTO}}</option>
+            <!--<option value="2">ROLE_ENCADREUR</option>
+            <option value="3">ROLE_STAGIAIRE</option>
+            <option value="4">ROLE_SECRETAIRE</option>-->
+          </select>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Update</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+

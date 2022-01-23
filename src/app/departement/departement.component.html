@@ -1,1 +1,57 @@
-<p>departement works!</p>
+<!--Consulter les Departements-->
+
+<div class="table-responsive" *ngIf="Mode() == 7">
+  <table class="table">
+    <thead class="table-light">
+    <tr align="center">
+      <th>Liste des Departements</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr align="center">
+      <td><button class="btn btn-primary" (click)="onGetDepartements()">Departements</button></td>
+    </tr>
+    </tbody>
+    <table *ngIf="departements" class="table table-dark table-hover align-middle">
+      <thead>
+      <tr align="center" >
+        <th> NOM </th>
+        <th> Description</th>
+        <th> Action </th>
+        <!--<th> ID </th> <th> NOM </th>  <th> Description </th>-->
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let d of departements._embedded.departements ">
+        <td>{{d.nomDpt}}</td>
+        <td>{{d.descriptDepartement}}</td>
+        <td><button class="btn btn-primary btn-sm space" (click)="onEditDepartement(d)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteDepartement(d)">Supprimer</button></td>
+      </tr>
+      </tbody>
+    </table>
+  </table>
+</div>
+
+
+<!-- Ajouter un departement -->
+
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%; margin-top: 3%" *ngIf="Mode() == 8">
+  <div class="dropdown-menu-dark">
+    <form class="px-4 py-3 was-validated" (ngSubmit)="onSaveDepartement(f.value)" #f = "ngForm">
+      <fieldset>
+        <legend>Nouveau departement</legend>
+        <div class="mb-3">
+          <label for="nomDpt" class="form-label">Nom<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nomDpt" name="nomDpt" placeholder="Developpement" ngModel required>
+        </div>
+        <div class="mb-3">
+          <label for="descriptDepartement" class="form-label">Description<span class="text-danger">*</span></label>
+          <!--<input type="text" class="form-control" id="descripRole" name="descripRole" ngModel required>-->
+          <textarea class="form-control" id="descriptDepartement" rows="3" name="descriptDepartement" ngModel required></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Ajouter</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

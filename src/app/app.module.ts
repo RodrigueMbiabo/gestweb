@@ -22,14 +22,20 @@ import { ProfilComponent } from './profil/profil.component';
 import { ProfilEditComponent } from './profil-edit/profil-edit.component';
 import { DepartementComponent } from './departement/departement.component';
 import { DepartementEditComponent } from './departement-edit/departement-edit.component';
+import { UserEditComponent } from './user-edit/user-edit.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'home', canActivate:[AuthGuard], component: HomeComponent},
-  {path: 'dashboard', canActivate:[AuthGuard],component: DashboardComponent},
-  {path: 'user', component: NewUserComponent},
-  {path: 'role', component: RoleComponent},
-  {path: 'role-edit/:id', component: RoleEditComponent},
+  {path: 'dashboard', canActivate:[AuthGuard], component: DashboardComponent},
+  {path: 'user', canActivate:[AuthGuard], component: NewUserComponent},
+  {path: 'user-edit/:id', canActivate:[AuthGuard], component: UserEditComponent},
+  {path: 'role', canActivate:[AuthGuard], component: RoleComponent},
+  {path: 'role-edit/:id', canActivate:[AuthGuard], component: RoleEditComponent},
+  {path: 'profil', canActivate:[AuthGuard], component: ProfilComponent},
+  {path: 'profil-edit/:id', canActivate:[AuthGuard], component: ProfilEditComponent},
+  {path: 'departement', canActivate:[AuthGuard], component: DepartementComponent},
+  {path: 'departement-edit/:id', canActivate:[AuthGuard], component: DepartementEditComponent},
   {path:'', component: LoginComponent},
   {path:'not-found', component:FourOhFourComponent},
   {path:'**', redirectTo:('/not-found')}
@@ -49,7 +55,8 @@ const appRoutes: Routes = [
     ProfilComponent,
     ProfilEditComponent,
     DepartementComponent,
-    DepartementEditComponent
+    DepartementEditComponent,
+    UserEditComponent
   ],
   imports: [
     BrowserModule,

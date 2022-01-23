@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from "../services/auth.service";
 
 @Component({
@@ -12,23 +12,26 @@ export class HomeComponent implements OnInit {
   public username: string | undefined;
   public nom: string | undefined;
   public prenom: string | undefined;
-
   constructor(private authService: AuthService) { }
 
   /*getName(){
     return this.nom  =  this.authService.getNom();
     //console.log("le nom est: "+this.nom)
   }*/
+
+  getCurrentPage(){
+    return localStorage.getItem("identif")
+  }
   getUsername(){
-    return this.username = this.authService.getUsername();
+    return localStorage.getItem("username")
   }
 
   getNom(){
-    return this.nom = this.authService.getNom();
+    return localStorage.getItem("nom");
   }
 
   getPrenom(){
-    return this.prenom = this.authService.getPrenom();
+    return localStorage.getItem("prenom")
   }
 
 

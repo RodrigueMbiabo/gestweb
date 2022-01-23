@@ -2,6 +2,8 @@ import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {RoleModel} from "../model/role.model";
 import {Injectable} from "@angular/core";
+import {ProfilModel} from "../model/profil.model";
+import {DepartementModel} from "../model/departement.model";
 
 @Injectable()
 export class RessourceService {
@@ -20,6 +22,17 @@ export class RessourceService {
     // @ts-ignore
     return this.httpClient.get(url);
   }
+
+  public  getRessourceProfil(url:any):Observable<ProfilModel>{
+    // @ts-ignore
+    return this.httpClient.get(url);
+  }
+
+  public getRessourceDepartement(url:any):Observable<DepartementModel>{
+    // @ts-ignore
+    return this.httpClient.get(url);
+  }
+
   public deleteRessource(url:any){
     return this.httpClient.delete(url)
   }

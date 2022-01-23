@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import {LoginService} from "../services/login.service";
 import {AuthService} from "../services/auth.service";
+import {CustomerService} from "../services/customer.service";
 
 // @ts-ignore
 @Component({
@@ -9,6 +10,7 @@ import {AuthService} from "../services/auth.service";
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent implements OnInit {
   nom !: string;
   password !: string;
@@ -17,36 +19,47 @@ export class LoginComponent implements OnInit {
   constructor(
     private router: Router,
     private loginService: LoginService,
-    private authService:AuthService
+    private authService:AuthService,
+    private customerService: CustomerService
   ) {}
 
   ngOnInit(): void {
+    localStorage.setItem("errorMess","");
+  }
+
+  getErrorMessage(){
+    return localStorage.getItem("errorMess");
   }
 
   //users !: any [] ;
-  onSubmit(form: any) {
+  onSubmit(value: any) {
 
-    const nom = form.value['nom'];
-    const password = form.value['password'];
-
-    /*this.authService.setUsername(nom);
-    this.authService.setPassword(password);*/
-
-    if (this.loginService.searchOnAll(nom,password)){
-      //this.users[0] = this.loginService.searchOnAll(nom,password);
-      //this.loginService.Users[0] = this.loginService.searchOnAll(nom,password)
-      this.authService.setStatut(true);
-
-
-      //console.log(this.authService.getStatut());
-      this.router.navigate(['/home']);
-    }
-    else {
-      //console.log("je suis dans le else")
-      //confirm("Mot de passe incorrect");
-      alert("Mot de passe ou nom d'utilisateur incorrect");
-      this.router.navigate(['/login']);
-    }
+    this.customerService.signInUser(this.customerService.host+"/user/signin",value)
+      .subscribe(
+        data =>{
+          //console.log(data);
+          //console.log("valeur du formulaire "+value);
+          this.authentication(data);
+          localStorage.setItem("identif","ACCUEIL");
+          localStorage.setItem("action","Information personnelle");
+          //localStorage.setItem("auth","true");
+          this.authService.setStatut(true);
+          this.router.navigateByUrl("/home");
+        },error => {
+          localStorage.setItem("errorMess","Username ou mot de passe incorrect!");
+          console.log(error);
+        }
+      )
+  }
+  private authentication(data: any): void{
+    const Jwt = data.token;
+    const username = data.userlog;
+    const nom = data.nom;
+    const prenom = data.prenom;
+    localStorage.setItem("username",username);
+    localStorage.setItem("nom",nom);
+    localStorage.setItem("prenom",prenom);
+    localStorage.setItem("authentication",Jwt);
   }
 
 }

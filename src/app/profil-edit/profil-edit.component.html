@@ -1,1 +1,21 @@
-<p>profil-edit works!</p>
+<!--Editer un profil-->
+
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%; margin-top: 13%" *ngIf="currentProfil">
+  <div class="dropdown-menu-dark">
+    <form class="px-4 py-3 was-validated" (ngSubmit)="onUpdateProfil(f.value)" #f = "ngForm">
+      <fieldset>
+        <legend>Mise a jour du Profil</legend>
+        <div class="mb-3">
+          <label for="nomProfil" class="form-label">Nom<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nomProfil" name="nomProfil" placeholder="Developpeur" ngModel required [(ngModel)]="currentProfil.nomProfilDTO">
+        </div>
+        <div class="mb-3">
+          <label for="descripProfil" class="form-label">Description<span class="text-danger">*</span></label>
+          <!--<input type="text" class="form-control" id="descripRole" name="descripRole" ngModel required>-->
+          <textarea class="form-control" id="descripProfil" rows="3" name="descripProfil" ngModel required [(ngModel)]="currentProfil.descripProfilDTO"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Update</button>
+      </fieldset>
+    </form>
+  </div>
+</div>

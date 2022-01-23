@@ -11,7 +11,7 @@ import {RoleModel} from "../model/role.model";
 export class RoleEditComponent implements OnInit {
   public currentRole !: RoleModel;
   public id !: string;
-  public host : string = "http://localhost:8080"
+  public host : string = "http://localhost:8080";
   constructor(
     private roleService: RessourceService,
     private activatedRoute: ActivatedRoute,

@@ -1,1 +1,22 @@
-<p>departement-edit works!</p>
+<!-- Editer un departement -->
+
+<div class="col-sm-8 col-sm-offset-2" style="margin-left: 15%; margin-top: 8%" *ngIf="currentDepartement">
+  <div class="dropdown-menu-dark">
+    <form class="px-4 py-3 was-validated" (ngSubmit)="onUpdateDepartement(f.value)" #f = "ngForm">
+      <fieldset>
+        <legend>Mis a jour du departement</legend>
+        <div class="mb-3">
+          <label for="nomDpt" class="form-label">Nom<span class="text-danger">*</span></label>
+          <input type="text" class="form-control" id="nomDpt" name="nomDpt" placeholder="Developpement" ngModel required [(ngModel)]="currentDepartement.nomDptDTO">
+        </div>
+        <div class="mb-3">
+          <label for="descriptDepartement" class="form-label">Description<span class="text-danger">*</span></label>
+          <!--<input type="text" class="form-control" id="descripRole" name="descripRole" ngModel required>-->
+          <textarea class="form-control" id="descriptDepartement" rows="3" name="descriptDepartement" ngModel required [(ngModel)]="currentDepartement.descriptDepartementDTO"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Update</button>
+      </fieldset>
+    </form>
+  </div>
+</div>
+

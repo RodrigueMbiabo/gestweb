@@ -1,4 +1,4 @@
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 
 @Injectable()
@@ -26,9 +26,27 @@ export class CustomerService {
   public getUsersform(){
     return this.httpClient.get(this.host+"/users");
   }
+  public getUser(url:any){
+    return this.httpClient.get(url)
+  }
 
   public deleteRessource(id:number){
     return this.httpClient.delete(this.host+"/user/"+id);
+  }
+
+  public signInUser(url:any,data:any){
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+    return this.httpClient.post(url, data,httpOptions);
+  }
+  public updateUser(url:any,data:any){
+    const httpOptions = {
+      headers: new HttpHeaders({'Content-Type': 'application/json'})
+    };
+    return this.httpClient
+      .put(url, data, httpOptions);
+    //return this.httpClient.put(url,data);
   }
 }
 

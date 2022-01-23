@@ -27,7 +27,7 @@ export class RoleComponent implements OnInit {
       .subscribe(
         data =>{
           this.roles = data;
-          //console.log(this.roles)
+          console.log(this.roles)
         },
         error => {
           console.log(error)
@@ -54,7 +54,7 @@ export class RoleComponent implements OnInit {
     /*console.log("donnée du formulaire "+data);
     data = JSON.stringify(data);
     console.log("donnée du formulaire "+data);*/
-    console.log(data)
+    //console.log(data)
     this.roleService.saveRessource(this.roleService.host+"/role",data)
       .subscribe(
         res =>{
