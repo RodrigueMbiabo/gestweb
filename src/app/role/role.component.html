@@ -39,16 +39,16 @@
       <tr align="center" >
         <th> NOM </th>
         <th> Description</th>
-        <th> Action </th>
+        <th *ngIf="getAccess()"> Action </th>
         <!--<th> ID </th> <th> NOM </th>  <th> Description </th>-->
       </tr>
       </thead>
 
       <tbody>
-      <tr *ngFor="let r of roles._embedded.roles ">
-        <td>{{r.nomRole}}</td>
-        <td>{{r.descripRole}}</td>
-        <td><button class="btn btn-primary btn-sm space" (click)="onEditRole(r)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteRole(r)">Supprimer</button></td>
+      <tr *ngFor="let r of roles ">
+        <td>{{r.nomRoleDTO}}</td>
+        <td>{{r.descripRoleDTO}}</td>
+        <td *ngIf="getAccess()"><button class="btn btn-primary btn-sm space" (click)="onEditRole(r)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteRole(r)">Supprimer</button></td>
       </tr>
       </tbody>
     </table>

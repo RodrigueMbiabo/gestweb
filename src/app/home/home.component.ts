@@ -33,6 +33,9 @@ export class HomeComponent implements OnInit {
   getPrenom(){
     return localStorage.getItem("prenom")
   }
+  getRole(){
+    return localStorage.getItem("nomRole");
+  }
 
 
   ngOnInit(): void {

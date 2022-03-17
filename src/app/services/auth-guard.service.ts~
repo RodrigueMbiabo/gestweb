@@ -19,7 +19,7 @@ export class AuthGuard implements CanActivate{
         localStorage.setItem("acces","1");
       }else if (localStorage.getItem("role") == "ROLE_ENCADREUR"){
         localStorage.setItem("nomRole","Encadreur");
-        localStorage.setItem("acces","1");
+        localStorage.setItem("acces","2")
       } else if(localStorage.getItem("role") == "ROLE_STAGIAIRE"){
         localStorage.setItem("nomRole","Stagiaire");
         localStorage.setItem("acces","3")

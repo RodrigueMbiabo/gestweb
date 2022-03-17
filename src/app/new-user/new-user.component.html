@@ -56,9 +56,6 @@
           <label  class="form-label over2">Role<span class="text-danger">*</span></label>
           <select class="form-select" aria-label="Default select example" name="role" ngModel required>
             <option *ngFor="let r of roles" [value]="r.idRoleDTO">{{r.nomRoleDTO}}</option>
-            <!--<option value="2">ROLE_ENCADREUR</option>
-            <option value="3">ROLE_STAGIAIRE</option>
-            <option value="4">ROLE_SECRETAIRE</option>-->
           </select>
         </div>
         <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Ajouter</button>
@@ -86,7 +83,7 @@
           <div >
             <label style="margin: 5px">keyword</label>
             <input type="text" name="keyword" ngModel>
-            <button type="submit" class="btn btn-primary" style="margin: 5px">Chercher</button>
+            <button type="submit" class="btn btn-primary" style="margin: 5px"><i class="bi bi-search"></i>Chercher</button>
           </div>
         </form>
       </td>
@@ -103,7 +100,7 @@
         <th> Role </th>
         <th> Profil </th>
         <th> Nom d'utilisateur </th>
-        <th> Action </th>
+        <th *ngIf="getAccess()"> Action </th>
         <!--<th> ID </th> <th> NOM </th>  <th> Description </th>-->
       </tr>
       </thead>
@@ -118,7 +115,7 @@
         <td>{{u.role.nomRole}}</td>
         <td>{{u.profil.nomProfil}}</td>
         <td>{{u.userlog}}</td>
-        <td><button class="btn btn-primary btn-sm space" (click)="onUpdateUser(u)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDelete(u)">Supprimer</button></td>
+        <td *ngIf="getAccess()"><button class="btn btn-primary btn-sm space" (click)="onUpdateUser(u)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDelete(u)">Supprimer</button></td>
       </tr>
       </tbody>
     </table>

@@ -1,63 +1,48 @@
+//Ce service envoie des demandes d'inscription et de connexion HTTP POST au back-end.
 
+import {HttpClient, HttpHeaders} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Injectable} from "@angular/core";
+
+
+const AUTH_API = 'http://localhost:8080/api/v1/utilisateurs';
+const httpOptions = {
+  headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+};
+@Injectable({
+  providedIn: 'root'
+})
 export class AuthService {
 
-  private username : string |undefined;
-  private nom : string | undefined;
-  private prenom: string | undefined;
-  private password : string | undefined;
-  private statut : boolean = false;
+  constructor(private http: HttpClient){}
 
-  setNom(nom: string){
-    this.nom = nom
+  logins(username: string, password: string): Observable<any>{
+    return this.http.post(AUTH_API + '/login' , {
+      username,
+      password
+    }, httpOptions)
   }
-  setPrenom(prenom: string){
-    this.prenom = prenom
+
+  register(username: string, nom: string, prenom: string, email: string, password: string, statut: boolean, departement: bigint, profil: bigint ): Observable<any> {
+    return this.http.post(AUTH_API, {
+      username,
+      nom,
+      prenom,
+      email,
+      password,
+      statut,
+      departement,
+      profil
+    }, httpOptions)
   }
-  setUsername(username: string){
-    this.username = username;
-  }
-  /*setNom(nom: string){
-    this.nom = nom;
-  }*/
-  setPassword(password: string){
-    this.password = password;
-  }
+
+  private statut : boolean = false;
   setStatut(statut: boolean){
     this.statut = statut
   }
-  getUsername(){
-    return this.username
-  }
-  getNom(){
-    return this.nom
-  }
-
-  getPrenom(){
-    return this.prenom
-  }
-  /*getNom(){
-    //this.clearData();
-    return this.nom
-  }*/
-  /*getPassword(){
-    let tempo = this.password;
-    this.clearData();
-    return tempo
-  }*/
-
   getStatut(){
-    // this.clearData();
     return this.statut
   }
-  /*getData(){
-    let temp = this.data;
-    this.clearData();
-    return temp;
-  }*/
 
-  /*clearData(){
-    this.nom = undefined;
-    this.password = undefined;
-  }*/
 
 }

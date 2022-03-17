@@ -25,6 +25,7 @@ export class DepartementComponent implements OnInit {
   }
 
   onGetDepartements() {
+    this.getAccess();
     this.departementService.getRessources(this.departementService.host+"/departements")
       .subscribe(
         data =>{
@@ -39,6 +40,11 @@ export class DepartementComponent implements OnInit {
         }
       );
 
+  }
+  getAccess(){
+    if (localStorage.getItem("acces") == "1"){
+      return true
+    } else return false;
   }
 
   onEditDepartement(d: any) {

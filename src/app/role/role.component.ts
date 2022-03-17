@@ -22,17 +22,23 @@ export class RoleComponent implements OnInit {
 
 
   onGetRoles(){
-
+    this.getAccess();
     this.roleService.getRessources(this.roleService.host+"/roles")
       .subscribe(
         data =>{
           this.roles = data;
-          console.log(this.roles)
+          //console.log(this.roles)
         },
         error => {
           console.log(error)
         }
       );
+  }
+
+  getAccess(){
+    if (localStorage.getItem("acces") == "1"){
+      return true
+    } else return false;
   }
   onDeleteRole(r:any){
     if (confirm("voulez vous vraiment supprimer ce role?")){

@@ -23,16 +23,20 @@ export class ProfilComponent implements OnInit {
   }
 
   onGetProfils() {
-
+    this.getAccess();
     this.profilService.getRessources(this.profilService.host+"/profils")
       .subscribe(
         res =>{
           this.profils = res;
-          //console.log("les profils: "+this.profils)
         }, error => {
           console.log(error);
         }
       )
+  }
+  getAccess(){
+    if (localStorage.getItem("acces") == "1"){
+      return true
+    } else return false;
   }
 
   Mode() {

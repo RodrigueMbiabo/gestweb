@@ -1,7 +1,11 @@
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Injectable} from "@angular/core";
 
-@Injectable()
+
+const API_URL = 'http://localhost:8080/api/v1/utilisateurs';
+@Injectable({
+  providedIn: 'root'
+})
 export class CustomerService {
   public mode !: number;
   public host: string = "http://localhost:8080";

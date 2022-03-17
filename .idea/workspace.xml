@@ -2,39 +2,31 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="62380b4f-18cc-4f85-8c9d-eeca6bf05413" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/app/model/departement.model.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/app/model/profil.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/__ngcc_entry_points__.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/__ngcc_entry_points__.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/departement-edit/departement-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/departement-edit/departement-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/departement-edit/departement-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/departement-edit/departement-edit.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/dashboard/dashboard.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/departement/departement.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/departement/departement.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/departement/departement.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/departement/departement.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/departement/departement.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/departement/departement.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/four-oh-four/four-oh-four.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/four-oh-four/four-oh-four.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/home/home.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/home/home.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/home/home.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/login.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/login.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/login/login.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/login/login.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/new-user/new-user.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/new-user/new-user.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/new-user/new-user.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/new-user/new-user.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/profil-edit/profil-edit.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profil-edit/profil-edit.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/profil-edit/profil-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profil-edit/profil-edit.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/profil/profil.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profil/profil.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/profil/profil.component.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profil/profil.component.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/profil/profil.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/profil/profil.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/role-edit/role-edit.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/role-edit/role-edit.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/role/role.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/role/role.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/role/role.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/role/role.component.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/auth-guard.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/auth-guard.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/auth.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/auth.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/services/customer.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/customer.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/services/ressource.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/ressource.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/services/login.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/services/login.service.ts" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -62,13 +54,14 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/app/_helpers" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="settings.github" />
     <property name="ts.external.directory.path" value="C:\Users\RODRIGO BALMACEDAS\IdeaProjects\gestionstagiaire-web\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\RODRIGO BALMACEDAS\IdeaProjects\gestionstagiaire-web\src\app\_helpers" />
       <recent name="C:\Users\RODRIGO BALMACEDAS\IdeaProjects\gestionstagiaire-web\src\app" />
     </key>
   </component>
@@ -138,7 +131,15 @@
       <workItem from="1642694414823" duration="5598000" />
       <workItem from="1642754748791" duration="37890000" />
       <workItem from="1642892784785" duration="11646000" />
-      <workItem from="1642927849858" duration="14476000" />
+      <workItem from="1642927849858" duration="14574000" />
+      <workItem from="1643013806106" duration="16213000" />
+      <workItem from="1643101045021" duration="5410000" />
+      <workItem from="1643186841511" duration="2965000" />
+      <workItem from="1643363693582" duration="713000" />
+      <workItem from="1647265903322" duration="2155000" />
+      <workItem from="1647351405515" duration="2167000" />
+      <workItem from="1647377366561" duration="667000" />
+      <workItem from="1647422556720" duration="23130000" />
     </task>
     <servers />
   </component>

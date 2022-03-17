@@ -1,6 +1,6 @@
 
 import {Component, Input, OnInit} from '@angular/core';
-import {LoginService} from "./services/login.service";
+//import {LoginService} from "./services/login.service";
 import {AuthService} from "./services/auth.service";
 import {Router} from "@angular/router";
 import {CustomerService} from "./services/customer.service";
@@ -14,9 +14,10 @@ import {RessourceService} from "./services/ressource.service";
 })
 export class AppComponent implements OnInit{
     public pageCourante : string | null = "";
+    public acces : string | null = "";
 
   constructor(
-    private loginService: LoginService,
+    //private loginService: LoginService,
     private authService: AuthService,
     private router: Router,
     private customerService: CustomerService,
@@ -28,6 +29,7 @@ export class AppComponent implements OnInit{
   ngOnInit(): void {
     localStorage.setItem("identif","ACCUEIL");
     this.pageCourante = localStorage.getItem("identif");
+    localStorage.setItem("acces","0");
   }
 
 
@@ -117,5 +119,10 @@ export class AppComponent implements OnInit{
       localStorage.setItem("identif","ACCUEIL");
       this.pageCourante = localStorage.getItem("identif");
     }
+  }
+  getAccess(){
+    if (localStorage.getItem("acces") == "1"){
+      return true
+    } else return false;
   }
 }

@@ -36,6 +36,7 @@ export class NewUserComponent implements OnInit {
 
 
   onGetUser() {
+    this.getAccess();
     this.customerService.getUsers2(this.currentPage, this.size)
       .subscribe(
         data2 =>{
@@ -64,17 +65,13 @@ export class NewUserComponent implements OnInit {
           console.log(error)
         }
       );
-    //console.log("le nombre total de page est :"+this.totalPages);
   }
-  /*changeMode(){
-    return this.mode == 1;
-  }*/
+
 
   Cherhcer(){
     this.customerService.getUsers2(this.currentPage, this.size)
       .subscribe(
         data2 =>{
-          //this.users2 = data2;
           // @ts-ignore
           this.totalPages = data2["page"].totalPages;
           this.pages = new Array<number>(this.totalPages);
@@ -86,15 +83,14 @@ export class NewUserComponent implements OnInit {
     this.customerService.getUsersBy(this.currentKeyword,this.currentPage,this.size)
       .subscribe(
         data =>{
-          //console.log("je suis dans le getUser()");
           this.users = data;
-          //this.totalPages = data.totalPages;
         }, error => {
           console.log(error)
         }
       );
   }
   onCherhcer(form: any) {
+    this.getAccess()
     this.currentPage = 0;
     this.currentKeyword = form.value['keyword'];
     this.Cherhcer();
@@ -102,7 +98,6 @@ export class NewUserComponent implements OnInit {
 
   onPageUser(i: number) {
     this.currentPage = i;
-    //this.onGetUser();
     this.Cherhcer();
   }
 
@@ -205,5 +200,10 @@ export class NewUserComponent implements OnInit {
     this.customerService.mode = 10;
     let url =  this.customerService.host+"/user/"+u.idUser;
     this.router.navigateByUrl("/user-edit/"+btoa(url));
+  }
+  getAccess(){
+    if (localStorage.getItem("acces") == "1"){
+      return true
+    } else return false;
   }
 }

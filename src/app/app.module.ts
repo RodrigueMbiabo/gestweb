@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
-import {LoginService} from "./services/login.service";
+//import {LoginService} from "./services/login.service";
 import {AuthService} from "./services/auth.service";
 import {RouterModule, Routes} from "@angular/router";
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -23,6 +23,7 @@ import { ProfilEditComponent } from './profil-edit/profil-edit.component';
 import { DepartementComponent } from './departement/departement.component';
 import { DepartementEditComponent } from './departement-edit/departement-edit.component';
 import { UserEditComponent } from './user-edit/user-edit.component';
+import { RegisterComponent } from './register/register.component';
 
 const appRoutes: Routes = [
   {path: 'login', component: LoginComponent},
@@ -36,6 +37,7 @@ const appRoutes: Routes = [
   {path: 'profil-edit/:id', canActivate:[AuthGuard], component: ProfilEditComponent},
   {path: 'departement', canActivate:[AuthGuard], component: DepartementComponent},
   {path: 'departement-edit/:id', canActivate:[AuthGuard], component: DepartementEditComponent},
+  {path: 'register', component: RegisterComponent},
   {path:'', component: LoginComponent},
   {path:'not-found', component:FourOhFourComponent},
   {path:'**', redirectTo:('/not-found')}
@@ -56,7 +58,8 @@ const appRoutes: Routes = [
     ProfilEditComponent,
     DepartementComponent,
     DepartementEditComponent,
-    UserEditComponent
+    UserEditComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
@@ -66,7 +69,7 @@ const appRoutes: Routes = [
     ReactiveFormsModule,
     HttpClientModule
   ],
-  providers: [LoginService,
+  providers: [//LoginService,
     AuthService,
     AuthGuard,
     CustomerService,

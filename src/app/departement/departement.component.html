@@ -17,7 +17,7 @@
       <tr align="center" >
         <th> NOM </th>
         <th> Description</th>
-        <th> Action </th>
+        <th *ngIf="getAccess()"> Action </th>
         <!--<th> ID </th> <th> NOM </th>  <th> Description </th>-->
       </tr>
       </thead>
@@ -26,7 +26,7 @@
       <tr *ngFor="let d of departements._embedded.departements ">
         <td>{{d.nomDpt}}</td>
         <td>{{d.descriptDepartement}}</td>
-        <td><button class="btn btn-primary btn-sm space" (click)="onEditDepartement(d)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteDepartement(d)">Supprimer</button></td>
+        <td *ngIf="getAccess()"><button class="btn btn-primary btn-sm space" (click)="onEditDepartement(d)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteDepartement(d)">Supprimer</button></td>
       </tr>
       </tbody>
     </table>

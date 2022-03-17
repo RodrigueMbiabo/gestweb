@@ -38,6 +38,8 @@ export class LoginService{
   }
   */
   //Recherche Pour la vérification au niveau des données du formulaire
+
+ /*
   searchOnAll(username:string,password:string){
     //Liste tous les utilisateurs de la base de donnée
     this.customerService.getUsersform()
@@ -48,26 +50,24 @@ export class LoginService{
           console.log(error)
         }
       );
-   // console.log("votre utilisateur est :"+this.users);
 
     const utilisateur = this.users.find(
       (userObject: { userlogDTO: string; passwordDTO: string; })=>{
         return userObject.userlogDTO == username
       }
     );
-    /*this.users.find(
+    /!*this.users.find(
       ((userObject: { userlogDTO: string; passwordDTO: string; }) =>{
         return userObject.userlogDTO == username && userObject.passwordDTO == password
       })
-    );*/
+    );*!/
     this.authService.setNom(utilisateur.nomDTO);
     this.authService.setUsername(utilisateur.userlogDTO);
     this.authService.setPrenom(utilisateur.prenomDTO);
     //this.authService.setPassword(password);
     //console.log("l'utilisateur est : "+utilisateur.nomDTO);
     return utilisateur
-  }
-
+  }*/
 
 
 }

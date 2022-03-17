@@ -40,7 +40,7 @@
       <tr align="center" >
         <th> NOM </th>
         <th> Description</th>
-        <th> Action </th>
+        <th *ngIf="getAccess()"> Action </th>
 
       </tr>
       </thead>
@@ -49,7 +49,7 @@
       <tr *ngFor="let p of profils._embedded.profils ">
         <td>{{p.nomProfil}}</td>
         <td>{{p.descripProfil}}</td>
-        <td><button class="btn btn-primary btn-sm space" (click)="onEditProfil(p)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteProfil(p)">Supprimer</button></td>
+        <td *ngIf="getAccess()"><button class="btn btn-primary btn-sm space" (click)="onEditProfil(p)">Modifier</button> <button class="btn btn-danger btn-sm space" (click)="onDeleteProfil(p)">Supprimer</button></td>
       </tr>
       </tbody>
     </table>
