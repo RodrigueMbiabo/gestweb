@@ -1,42 +1,25 @@
 <div class="col-md-12">
     <div class="card card-container">
-      <img
-        id="profile-img"
-        src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-        class="profile-img-card"
-      />
-      <form
-        *ngIf="!isLoggedIn"
-        name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
-        #f="ngForm"
-      >
+      <form class="px-4 py-3 was-validated" (ngSubmit)="onSubmit(f.value)" #f="ngForm">
           <fieldset>
               <legend>Formulaire de connexion</legend>
-            <div class="form-group">
-                <label for="username">Username</label>
-                <input type="text" class="form-control" id="username" name="username" placeholder="Rod20" [(ngModel)]="form.username" #username="ngModel" />
-                <div
-                  class="alert alert-danger"
-                  role="alert"
-                  *ngIf="username.errors && f.submitted"
-                >
-                  username is required
+            <div class="alert alert-danger text-center" style="color: red" *ngIf="getErrorMessage()">
+              <p>
+                {{getErrorMessage()}}
+              </p>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" class="form-control" id="username" name="username" placeholder="Rod20" ngModel required minlength="4" >
+                <div class="invalid-feedback">
+                  Name must be at least 4 characters long.
                 </div>
             </div>
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password" class="form-control" id="password" name="password" placeholder="Password" [(ngModel)]="form.password" required minlength="6" #password="ngModel">
-              <div
-                class="alert alert-danger"
-                role="alert"
-                *ngIf="password.errors && f.submitted"
-              >
-                <div *ngIf="password.errors.required">Password is required</div>
-                <div *ngIf="password.errors.minlength">
-                  Password must be at least 6 characters
-                </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" ngModel required minlength="4">
+              <div class="invalid-feedback">
+                Password must be at least 4 characters long.
               </div>
             </div>
             <div class="mb-3">
@@ -47,11 +30,11 @@
                 </label>
               </div>
             </div>
-            <button type="submit" class="btn btn-primary btn-space" ><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Connecter</button>
+            <button type="submit" class="btn btn-primary btn-space" [disabled]="f.invalid"><i class="bi bi-box-arrow-in-right" style="margin-right: 5px"></i>Connecter</button>
           </fieldset>
       </form>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" routerLink="/register">Nouveau par ici? Creer Compte</a>
+      <a class="dropdown-item" href="#">Nouveau par ici? Creer Compte</a>
       <a class="dropdown-item" href="#">Mot de passe oublié?</a>
     </div>
 </div>

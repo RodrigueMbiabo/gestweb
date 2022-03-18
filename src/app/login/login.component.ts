@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("errorMess","");
     if (this.tokenStorage.getToken()){
       this.isLoggedIn = true;
-      this.roles = this.tokenStorage.getUser().roles;
+      this.roles = this.tokenStorage.getUser()
     }
   }
 
@@ -50,36 +50,24 @@ export class LoginComponent implements OnInit {
   }
 
   //users !: any [] ;
-  onSubmit() {
-    const { username, password } = this.form;
-    this.authService.logins(username,password)
+  onSubmit(value: any) {
+    this.customerService.signInUser(this.customerService.host+"/user/signin",value)
       .subscribe(
         data =>{
-          this.tokenStorage.saveToken(data.accessToken);
-          this.tokenStorage.saveUser(data);
-
-          this.isLoginFailed = false;
-          this.isLoggedIn = true;
-          this.roles = this.tokenStorage.getUser().roles;
-          this.reloadPage();
-          /*//console.log(data);
+          //console.log(data);
           //console.log("valeur du formulaire "+value);
           this.authentication(data);
           localStorage.setItem("identif","ACCUEIL");
           localStorage.setItem("action","Information personnelle");
           //localStorage.setItem("auth","true");
           this.authService.setStatut(true);
-          this.router.navigateByUrl("/home");*/
-        },err => {
-          this.errorMessage = err.error.message;
-          this.isLoginFailed = true;
+          this.router.navigateByUrl("/home");
+        },error => {
+          localStorage.setItem("errorMess","Username ou mot de passe incorrect!");
+          console.log(error);
         }
-      );
+      )
   }
-  reloadPage(): void {
-    window.location.reload();
-  }
-
   private authentication(data: any): void{
     const Jwt = data.token;
     const username = data.userlog;
@@ -92,4 +80,5 @@ export class LoginComponent implements OnInit {
     localStorage.setItem("authentication",Jwt);
     localStorage.setItem("role",role);
   }
+
 }
